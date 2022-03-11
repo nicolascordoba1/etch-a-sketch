@@ -1,0 +1,27 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    display: inline-block;
+}
+
+.main-container{
+    display: block;
+    
+    grid-template-rows: repeat(16, 50px);
+    grid-template-columns: repeat(16, 50px);
+    border: 1px solid black;
+    width: 800px;
+}
+.container{
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+}
+
+.container-color{
+    background-color: black;
+}
