@@ -1,63 +1,55 @@
 const mainContainer = document.querySelector('.main-container')
-const container = document.createElement('div')
-const btn = document.querySelector('button')
+const btnReset = document.querySelector('button')
+const form = document.querySelector('.add')
+const colorRainbow = document.querySelector('.rainbow-mode')
+const colorClassic = document.querySelector('.classic-mode')
 
-const btn16 = document.querySelector('.button16')
-const btn32 = document.querySelector('.button32')
-const btn64 = document.querySelector('.button64')
+sizeGrid(16)
 
+form.addEventListener('submit', (e)=>{
+    e.preventDefault()
+    const gridSize = form.add.value.trim();
+    if(!isNaN(gridSize)){
+        if(gridSize<=100){
+            sizeGrid(gridSize)
+        } else{
+            const warning = document.createElement('p')
+            warning.innerText = 'Choose a number under 100 or everything is going to explode!'
+            warning.classList.add('warning')
+            form.appendChild(warning)
+        }
+        
+    } else{
+        alert('You only can type numbers!')
+    }
 
+})
 
-btn16.addEventListener('click', ()=>{
+function sizeGrid(gridSize){
     mainContainer.innerHTML = '';
-    mainContainer.classList.remove('main-container64')
-    mainContainer.classList.remove('main-container32')
-    mainContainer.classList.add('main-container16')
-
-    for(let i=0; i<256;i++){
+    for(let i = 0; i<gridSize*gridSize;i++){
         const container = document.createElement('div')
         container.classList.add('container')
         mainContainer.appendChild(container)
     }
-    draw()  
-});
-
-btn32.addEventListener('click', ()=>{
-    mainContainer.innerHTML = '';
-    mainContainer.classList.remove('main-container64')
-    mainContainer.classList.remove('main-container16')
-    mainContainer.classList.add('main-container32')
-
-    for(let i=0; i<1024;i++){
-        const container = document.createElement('div')
-        container.classList.add('container')
-        mainContainer.appendChild(container)
-    }
-    draw()  
-});
-btn64.addEventListener('click', ()=>{
-    mainContainer.innerHTML = '';
-    mainContainer.classList.remove('main-container16')
-    mainContainer.classList.remove('main-container32')
-    mainContainer.classList.add('main-container64')
-
-    for(let i=0; i<4096;i++){
-        const container = document.createElement('div')
-        container.classList.add('container')
-        mainContainer.appendChild(container)
-    }
-    draw()  
-});
+    mainContainer.setAttribute('style', `grid-template-rows: repeat(${gridSize}, 1fr);grid-template-columns: repeat(${gridSize}, 1fr);`)
+    draw()
+}
 
 function draw(){
+    
     const contenedor = document.querySelectorAll('.container')
 
-contenedor.forEach(elemento => elemento.addEventListener('mousemove', ()=>{
-    elemento.classList.add('container-color')
-}))
+    contenedor.forEach(elemento => elemento.addEventListener('mousemove', ()=>{
+
+        elemento.setAttribute('style', 'background-color:white;');
+        
+    }))
 }
 
 
-btn.addEventListener('click', ()=>{
+btnReset.addEventListener('click', ()=>{
     window.location.reload(true)
 })
+
+colorRainbow.addEventListener('click', )

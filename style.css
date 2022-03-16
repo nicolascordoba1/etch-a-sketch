@@ -28,8 +28,8 @@ h1{
 }
 
 .main-container{
-    width: 960px;
-    height: 960px;
+    width: 720px;
+    height: 720px;
     display: grid;
     gap:0px 0px;
     border: 15px solid rgb(83, 51, 0);
@@ -37,45 +37,13 @@ h1{
     background-color: rgb(52, 139, 74);
 }
 
-.main-container16{    
-    grid-template-rows: repeat(16, 1fr);
-    grid-template-columns: repeat(16, 1fr);
-    width: 960px;
-    height: 960px;    
-}
-
-.main-container32{    
-    grid-template-rows: repeat(32, 1fr);
-    grid-template-columns: repeat(32, 1fr);
-    width: 960px;
-    height: 960px;
-}
-
-.main-container64{
-
-    grid-template-rows: repeat(64, 1fr);
-    grid-template-columns: repeat(64, 1fr);
-    width: 960px;
-    height: 960px;
-}
-
 .container{
     display: inline-block;
     height: 1fr;
     width: 1fr;
+    border: 0.5px dotted black;
 }
 
-.container-color{
-    background-color: white;
-}
-
-.size-pixels{
-    display: flex;
-    justify-content: center;
-}
-
-.size-pixels button{
-    width: 80px;
-    height: 40px;
-    margin: 20px 40px;
+.warning{
+    color: red;
 }
