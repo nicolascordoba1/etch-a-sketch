@@ -3,6 +3,7 @@ const btnReset = document.querySelector('button')
 const form = document.querySelector('.add')
 const colorRainbow = document.querySelector('.rainbow-mode')
 const colorClassic = document.querySelector('.classic-mode')
+let color = 'rgb(0, 0, 0)'
 
 sizeGrid(16)
 
@@ -13,15 +14,14 @@ form.addEventListener('submit', (e)=>{
         if(gridSize<=100){
             sizeGrid(gridSize)
         } else{
-            const warning = document.createElement('p')
-            warning.innerText = 'Choose a number under 100 or everything is going to explode!'
-            warning.classList.add('warning')
-            form.appendChild(warning)
+            alert('Only number under 100')
         }
         
     } else{
         alert('You only can type numbers!')
     }
+    form.reset()
+    
 
 })
 
@@ -42,7 +42,7 @@ function draw(){
 
     contenedor.forEach(elemento => elemento.addEventListener('mousemove', ()=>{
 
-        elemento.setAttribute('style', 'background-color:white;');
+        elemento.setAttribute('style', `background-color:${color};`);
         
     }))
 }
@@ -52,4 +52,25 @@ btnReset.addEventListener('click', ()=>{
     window.location.reload(true)
 })
 
-colorRainbow.addEventListener('click', )
+colorRainbow.addEventListener('click', ()=>{
+    window.addEventListener('mousemove', mouseMove)
+    
+})
+
+function mouseMove(){
+    color = `rgb(${randomNumber(255)},${randomNumber(255)},${randomNumber(255)})`
+}
+
+
+colorClassic.addEventListener('click', ()=>{
+    window.removeEventListener('mousemove', mouseMove)
+    
+    color = 'rgb(0, 0, 0)'
+})
+
+function randomNumber(number){
+
+   return Math.floor(Math.random() * number) 
+    
+
+}

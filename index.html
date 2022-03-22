@@ -7,9 +7,12 @@
     <title>Etch-a-Sketch</title>
     <link rel="stylesheet" href="style.css">
     <script src="main.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <button class="reset">Reset</button>
+    
 
     <header>
         <h1>Etch-a-Sketch</h1>
@@ -17,17 +20,29 @@
     </header>
     
 
-   <form class="add">
-        <label>Change the grid size!</label>
-        <input type="text" name="add">
-   </form>
-
    
-    <div class="main-container">
 
-    </div>
+   <div class="border-container">
+       <div class="canvas-header">
+           <form class="add">
+                <label>Change the grid size!</label>
+                <input type="text" name="add">
+            </form>
+            <button class="reset">Reset</button>
+       </div>
+    
+       
+        <div class="main-container">
+        </div>
 
-    <button class="rainbow-mode">Rainbow Mode!</button>
-    <button class="classic-mode">Classic Mode</button>
+        <div class="canvas-footer">
+            <button class="rainbow-mode">Rainbow Mode!</button>
+            <button class="classic-mode">Classic Mode</button>
+        </div>
+        
+   </div>
+    
+
+    
 </body>
 </html>
